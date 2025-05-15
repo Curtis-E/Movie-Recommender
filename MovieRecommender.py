@@ -35,6 +35,6 @@ for user in range(X.shape[0]):
         if not has_rating[movie]:
             X[user, movie] = np.dot(X[user, has_rating], cm[movie, has_rating])/np.sum(np.abs(cm[movie, has_rating]))
     X[user, has_rating]= -10.0
-
+# Outputs to csv
 df.iloc[:,1:] = np.round(X, decimals= 3)
 df.to_csv("recommend.csv")
